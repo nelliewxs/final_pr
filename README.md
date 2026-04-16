@@ -2,7 +2,7 @@
 
 ## 👤 Student
 
-Sabirova Zharkynai
+Zhumanalieva Nuriya
 
 ---
 
