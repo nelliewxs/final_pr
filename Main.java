@@ -60,44 +60,61 @@ public class Main {
 
     // 🔹 ADD PROPERTY
     private static void addProperty(Scanner scanner, PropertyManager manager) {
-        try {
-            System.out.print("Enter ID: ");
-            int id = Integer.parseInt(scanner.nextLine());
+    try {
+        System.out.print("Enter ID: ");
+        int id = Integer.parseInt(scanner.nextLine());
 
-            System.out.print("Enter title: ");
-            String title = scanner.nextLine();
+        if (manager.idExists(id)) {
+            System.out.println("Property with this ID already exists!");
+            return;
+        }
 
-            if (title.isEmpty()) {
-                System.out.println("Title cannot be empty!");
+        System.out.print("Enter title: ");
+        String title = scanner.nextLine();
+
+        if (title.trim().isEmpty()) {
+            System.out.println("Title cannot be empty!");
+            return;
+        }
+
+        System.out.print("Enter price: ");
+        double price = Double.parseDouble(scanner.nextLine());
+
+        if (price <= 0) {
+            System.out.println("Price must be positive!");
+            return;
+        }
+
+        System.out.println("Choose type: 1-House, 2-Apartment");
+        int type = Integer.parseInt(scanner.nextLine());
+
+        if (type == 1) {
+            System.out.print("Enter number of rooms: ");
+            int rooms = Integer.parseInt(scanner.nextLine());
+
+            if (rooms <= 0) {
+                System.out.println("Rooms must be positive!");
                 return;
             }
 
-            System.out.print("Enter price: ");
-            double price = Double.parseDouble(scanner.nextLine());
+            manager.addProperty(new House(id, title, price, rooms));
 
-            System.out.println("Choose type: 1-House, 2-Apartment");
-            int type = Integer.parseInt(scanner.nextLine());
+        } else if (type == 2) {
+            System.out.print("Enter floor: ");
+            int floor = Integer.parseInt(scanner.nextLine());
 
-            if (type == 1) {
-                System.out.print("Enter number of rooms: ");
-                int rooms = Integer.parseInt(scanner.nextLine());
+            manager.addProperty(new Apartment(id, title, price, floor));
 
-                manager.addProperty(new House(id, title, price, rooms));
-
-            } else if (type == 2) {
-                System.out.print("Enter floor: ");
-                int floor = Integer.parseInt(scanner.nextLine());
-
-                manager.addProperty(new Apartment(id, title, price, floor));
-
-            } else {
-                System.out.println("Invalid type!");
-            }
-
-        } catch (Exception e) {
-            System.out.println("Invalid input! Please try again.");
+        } else {
+            System.out.println("Invalid type!");
         }
+
+    } catch (NumberFormatException e) {
+        System.out.println("Please enter correct numeric values!");
+    } catch (Exception e) {
+        System.out.println("Unexpected error occurred.");
     }
+}
 
     // 🔹 UPDATE
     private static void updateProperty(Scanner scanner, PropertyManager manager) {
