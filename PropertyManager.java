@@ -65,4 +65,12 @@ public class PropertyManager {
     public void setProperties(ArrayList<Property> properties) {
         this.properties = properties;
     }
+   public boolean idExists(int id) {
+    for (Property p : properties) {
+        if (p.getId() == id) {
+            return true;
+        }
+    }
+    return false;
+}
 }
