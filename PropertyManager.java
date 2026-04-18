@@ -80,4 +80,10 @@ public class PropertyManager {
     }
     return false;
 }
+    public void sortByPrice() {
+    properties.sort((p1, p2) -> Double.compare(p1.getPrice(), p2.getPrice()));
+
+    System.out.println("\n=== Properties Sorted by Price ===");
+    viewProperties();
+}
 }
