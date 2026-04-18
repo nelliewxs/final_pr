@@ -6,24 +6,29 @@ Zhumanalieva Nuriya
 
 ---
 
-## 📌 Description
+## 📌 Project Description
 
-Property Listing Manager is a Java-based console application that allows users to manage real estate listings for sale or rent.
-The system supports adding, viewing, updating, and deleting properties such as houses and apartments.
+Property Listing Manager is a console-based Java application designed to manage real estate listings for sale or rent.
+The system allows users to create, view, update, and delete property records such as houses and apartments.
+
+The project demonstrates core Object-Oriented Programming (OOP) concepts and provides a simple but functional data management system.
 
 ---
 
 ## 🎯 Objectives
 
-* Practice Object-Oriented Programming (OOP) concepts
-* Implement CRUD operations
-* Create a user-friendly CLI application
-* Store and retrieve data from files
+* Apply Object-Oriented Programming principles in a real project
+* Implement CRUD (Create, Read, Update, Delete) operations
+* Build a user-friendly Command Line Interface (CLI)
+* Store and retrieve data using file handling
 * Ensure input validation and error handling
+* Design a modular and maintainable system
 
 ---
 
 ## ✅ Project Requirements
+
+The following requirements are implemented in the project:
 
 1. Add new property
 2. View all properties
@@ -32,25 +37,68 @@ The system supports adding, viewing, updating, and deleting properties such as h
 5. Command Line Interface (CLI)
 6. Input validation
 7. Error handling
-8. File storage (data persistence)
-9. Import and export data
-10. OOP principles (Encapsulation, Inheritance, Polymorphism)
+8. Data persistence using file storage
+9. Import and export data from file
+10. Use of OOP principles (Encapsulation, Inheritance, Polymorphism)
 
 ---
 
-## 🧠 OOP Concepts Used
+## 🧠 OOP Concepts Implementation
 
-* **Encapsulation**: Private fields with getters and setters
-* **Inheritance**: House and Apartment extend Property
-* **Polymorphism**: Overridden display() method
+### 🔒 Encapsulation
+
+* Private fields in `Property` class (`id`, `title`, `price`)
+* Access controlled via getters and setters
+
+### 🧬 Inheritance
+
+* `House` and `Apartment` classes extend the base class `Property`
+
+### 🔄 Polymorphism
+
+* Method `display()` is overridden in child classes
+* Allows different output for different property types
 
 ---
 
-## ⚙️ Technologies
+## 🏗️ Project Structure
+
+```bash
+src/
+ └── com/propertymanager/
+      ├── Main.java
+      ├── Property.java
+      ├── House.java
+      ├── Apartment.java
+      ├── PropertyManager.java
+      ├── FileHandler.java
+```
+
+---
+
+## ⚙️ Technologies Used
 
 * Java
-* ArrayList
+* ArrayList (for data storage in memory)
 * File I/O (BufferedReader, BufferedWriter)
+
+---
+
+## 💾 Data Storage
+
+* Data is stored in a file: `data.txt`
+* Each line represents one property
+* Format example:
+
+```
+House,1,Villa,100000,5
+Apartment,2,Flat,50000,3
+```
+
+* Data is automatically:
+
+  * Loaded when the program starts
+  * Saved when the program exits
 
 ---
 
@@ -58,60 +106,125 @@ The system supports adding, viewing, updating, and deleting properties such as h
 
 ### ➤ Add Property
 
-Input:
-1 → Add
-ID: 1
-Title: Villa
-Price: 100000
-Type: House
-Rooms: 5
+**Input:**
 
-Output:
+```
+1
+1
+Villa
+100000
+1
+5
+```
+
+**Output:**
+
+```
 Property added successfully!
+```
+
+---
+
+### ➤ View Properties
+
+**Output:**
+
+```
+[House] ID: 1 | Villa | $100000.0 | Rooms: 5
+```
 
 ---
 
 ### ➤ Update Property
 
-Input:
-3 → Update
-ID: 1
-New Price: 120000
+**Input:**
 
-Output:
+```
+3
+1
+120000
+```
+
+**Output:**
+
+```
 Property updated.
+```
 
 ---
 
 ### ➤ Delete Property
 
-Input:
-4 → Delete
-ID: 1
+**Input:**
 
-Output:
+```
+4
+1
+```
+
+**Output:**
+
+```
 Property deleted.
+```
 
 ---
 
-## 💾 Data Storage
+## ⚠️ Error Handling & Validation
 
-All data is stored in a text file (`data.txt`) and loaded when the program starts.
+The system includes:
+
+* Try-catch blocks to prevent crashes
+* Validation for incorrect input types
+* Protection against empty inputs
+* Basic user input error messages
 
 ---
 
-## ⚠️ Challenges
+## 📊 Algorithms & Data Structures
 
-* Handling file parsing correctly
-* Managing object types (House vs Apartment)
-* Ensuring clean OOP structure
+### Data Structure:
+
+* `ArrayList<Property>` is used to store properties dynamically
+
+### Algorithms:
+
+* Linear search is used for:
+
+  * Finding property by ID
+  * Updating records
+  * Deleting records
+
+---
+
+## ⚠️ Challenges Faced
+
+* Handling file reading and parsing correctly
+* Managing different property types during file load
+* Ensuring clean OOP design
+* Implementing user input validation
 
 ---
 
 ## 🚀 Future Improvements
 
-* GUI version (JavaFX)
-* Database integration (MySQL)
-* Search and filtering features
+* Add search and filtering functionality
+* Implement sorting (by price, title)
+* Develop GUI using JavaFX or Swing
+* Replace file storage with database (MySQL / SQLite)
+* Add authentication system (Admin/User roles)
 
 ---
+
+## 📸 Screenshots
+
+*(Add screenshots here showing: Add, View, Update, Delete operations with date & time visible)*
+
+---
+
+## 🔗 Project Repository
+
+https://github.com/nelliewxs/final_pr.git
+
+---
+
