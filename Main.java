@@ -17,8 +17,8 @@ public class Main {
             System.out.println("2. View Properties");
             System.out.println("3. Update Property");
             System.out.println("4. Delete Property");
-            System.out.println("5. Exit");
-            System.out.println("6. Sort by Price");
+            System.out.println("5. Sort by Price (Low → High)");
+            System.out.println("6. Exit");
             System.out.print("Choose option: ");
 
             int choice;
@@ -49,13 +49,13 @@ public class Main {
                     break;
 
                 case 5:
+                    manager.sortByPrice();
+                    break;
+
+                case 6:
                     FileHandler.saveToFile(manager.getProperties());
                     System.out.println("Data saved. Goodbye!");
                     return;
-
-                case 6:
-                    manager.sortByPrice();
-                    break;
 
                 default:
                     System.out.println("Invalid choice!");
