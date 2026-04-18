@@ -228,3 +228,6 @@ https://github.com/nelliewxs/final_pr.git
 
 ---
 
+## 🔗 Presentation Link
+
+https://canva.link/mpl9glyfxyj4a1l
