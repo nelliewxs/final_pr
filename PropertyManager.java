@@ -48,16 +48,23 @@ public class PropertyManager {
     }
 
     // UPDATE
-    public void updateProperty(int id, double newPrice) {
-        for (Property p : properties) {
-            if (p.getId() == id) {
-                p.setPrice(newPrice);
-                System.out.println("Property updated.");
-                return;
-            }
-        }
-        System.out.println("Property not found.");
+   public void updateProperty(int id, double newPrice) {
+
+    if (newPrice <= 0) {
+        System.out.println("Price must be positive!");
+        return;
     }
+
+    for (Property p : properties) {
+        if (p.getId() == id) {
+            p.setPrice(newPrice);
+            System.out.println("Property updated.");
+            return;
+        }
+    }
+
+    System.out.println("Property not found.");
+}
     public ArrayList<Property> getProperties() {
         return properties;
     }
