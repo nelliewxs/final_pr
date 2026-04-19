@@ -18,7 +18,8 @@ public class Main {
             System.out.println("3. Update Property");
             System.out.println("4. Delete Property");
             System.out.println("5. Sort by Price (Low → High)");
-            System.out.println("6. Exit");
+            System.out.println("6. Search by Max Price");
+            System.out.println("7. Exit");
             System.out.print("Choose option: ");
 
             int choice;
@@ -53,6 +54,10 @@ public class Main {
                     break;
 
                 case 6:
+                    searchByPrice(scanner, manager);
+                    break;
+
+                case 7:
                     FileHandler.saveToFile(manager.getProperties());
                     System.out.println("Data saved. Goodbye!");
                     return;
@@ -149,4 +154,21 @@ public class Main {
             System.out.println("Invalid input!");
         }
     }
+
+    private static void searchByPrice(Scanner scanner, PropertyManager manager) {
+    try {
+        System.out.print("Enter max price: ");
+        double price = Double.parseDouble(scanner.nextLine());
+
+        if (price <= 0) {
+            System.out.println("Price must be positive!");
+            return;
+        }
+
+        manager.searchByMaxPrice(price);
+
+    } catch (Exception e) {
+        System.out.println("Invalid input!");
+    }
+}
 }
