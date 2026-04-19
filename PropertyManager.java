@@ -48,23 +48,23 @@ public class PropertyManager {
     }
 
     // UPDATE
-   public void updateProperty(int id, double newPrice) {
+    public void updateProperty(int id, double newPrice) {
 
-    if (newPrice <= 0) {
-        System.out.println("Price must be positive!");
-        return;
-    }
-
-    for (Property p : properties) {
-        if (p.getId() == id) {
-            p.setPrice(newPrice);
-            System.out.println("Property updated.");
+        if (newPrice <= 0) {
+            System.out.println("Price must be positive!");
             return;
         }
-    }
 
-    System.out.println("Property not found.");
-}
+        for (Property p : properties) {
+            if (p.getId() == id) {
+                p.setPrice(newPrice);
+                System.out.println("Property updated.");
+                return;
+            }
+        }
+
+        System.out.println("Property not found.");
+    }
     public ArrayList<Property> getProperties() {
         return properties;
     }
@@ -72,18 +72,32 @@ public class PropertyManager {
     public void setProperties(ArrayList<Property> properties) {
         this.properties = properties;
     }
-   public boolean idExists(int id) {
-    for (Property p : properties) {
-        if (p.getId() == id) {
-            return true;
+    public boolean idExists(int id) {
+        for (Property p : properties) {
+            if (p.getId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public void sortByPrice() {
+        properties.sort((p1, p2) -> Double.compare(p1.getPrice(), p2.getPrice()));
+
+        System.out.println("\n=== Properties Sorted by Price ===");
+        viewProperties();
+    }
+    public void searchByMaxPrice(double maxPrice) {
+        boolean found = false;
+
+        for (Property p : properties) {
+            if (p.getPrice() <= maxPrice) {
+                p.display();
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("No properties found under this price.");
         }
     }
-    return false;
-}
-    public void sortByPrice() {
-    properties.sort((p1, p2) -> Double.compare(p1.getPrice(), p2.getPrice()));
-
-    System.out.println("\n=== Properties Sorted by Price ===");
-    viewProperties();
-}
 }
