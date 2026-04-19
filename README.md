@@ -218,7 +218,7 @@ The system includes:
 
 ## 📸 Screenshots
 
-*(Add screenshots here showing: Add, View, Update, Delete operations with date & time visible)*
+*(https://drive.google.com/drive/folders/1QSeGL-B6G1cC6azFpJdWMNZwSJIaeVlf?usp=sharing)*
 
 ---
 
